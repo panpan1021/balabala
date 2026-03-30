@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/usr/include",
+                "/usr/include/x86_64-linux-gnu",
+                "/"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/g++",      // 改为 g++
+            "cStandard": "c17",
+            "cppStandard": "c++17",               // 添加 C++ 标准
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}
