@@ -37,8 +37,9 @@ public:
             int n=recvfrom(_socket,buffer,sizeof(buffer)-1,0,(struct sockaddr*)&peer,&len);
             if(n==-1)exit(RECV);
             else{
-                
+                buffer[n]=0;
                 printf("%s\n",buffer);
+                 fflush(stdout);   
                 sendto(_socket,buffer,n,0,(const struct sockaddr*)&peer,len);
             }
         }
