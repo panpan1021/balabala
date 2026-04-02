@@ -1,9 +1,9 @@
-..PHONY:all
-all:client_udp server_udp
-server_udp:EchoServerMain.cc
-	g++ -o $@ $^ -std=c++14
-client_udp:EchoClient.cc
-	g++ -o $@ $^ -std=c++14
+.PHONY:all
+all:server_tcp client_tcp
+server_tcp:NetCalServer.cc
+	g++ -o $@ $^ -std=c++14 -ljsoncpp
+client_tcp:NetCalClient.cc
+	g++ -o $@ $^ -std=c++14 -ljsoncpp
 .PHONY:clean
 clean:
-	rm -f client_udp server_udp
+	rm -f  server_tcp client_tcp
