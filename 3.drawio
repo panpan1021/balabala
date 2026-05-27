@@ -1,623 +1,134 @@
 <mxfile host="app.diagrams.net" modified="2026-05-27T00:00:00.000Z" agent="AI" version="22.1.0">
-  <diagram name="UC06-上报马拉松成绩-基本流" id="uc06-basic">
+  <diagram name="参与类图-上报马拉松成绩" id="class-marathon">
     <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
-        <mxCell id="2" value="跑团成员" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="30" y="80" width="100" height="400" as="geometry"/>
+        <mxCell id="2" value="Member" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="200" height="150" as="geometry"/>
         </mxCell>
-        <mxCell id="3" value="成绩上报界面" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="160" y="80" width="100" height="400" as="geometry"/>
+        <mxCell id="3" value="- memberId: String&#10;- name: String&#10;- jobNumber: String&#10;- college: String&#10;- phone: String" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=fill;whiteSpace=wrap;html=1;" vertex="1" parent="2">
+          <mxGeometry y="30" width="200" height="70" as="geometry"/>
         </mxCell>
-        <mxCell id="4" value="成绩管理控制器" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="290" y="80" width="100" height="400" as="geometry"/>
+        <mxCell id="4" value="+ login()&#10;+ submitResult()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=fill;whiteSpace=wrap;html=1;" vertex="1" parent="2">
+          <mxGeometry y="100" width="200" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="5" value="马拉松成绩记录" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="420" y="80" width="100" height="400" as="geometry"/>
+        
+        <mxCell id="5" value="MarathonRecord" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="40" width="220" height="180" as="geometry"/>
         </mxCell>
-        <mxCell id="6" value="填写赛事信息并提交" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="2" target="3">
+        <mxCell id="6" value="- recordId: String&#10;- memberId: String&#10;- eventName: String&#10;- eventDate: Date&#10;- project: String&#10;- gunTime: String&#10;- netTime: String&#10;- rank: int&#10;- certificate: String&#10;- status: String" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=fill;whiteSpace=wrap;html=1;" vertex="1" parent="5">
+          <mxGeometry y="30" width="220" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="7" value="+ checkDuplicate()&#10;+ createRecord()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=fill;whiteSpace=wrap;html=1;" vertex="1" parent="5">
+          <mxGeometry y="150" width="220" height="30" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="8" value="ResultManager" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="300" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="9" value="+ submitResult()&#10;+ auditResult()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=fill;whiteSpace=wrap;html=1;" vertex="1" parent="8">
+          <mxGeometry y="30" width="180" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="10" value="SubmitResultUI" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="300" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="11" value="+ displayForm()&#10;+ submit()&#10;+ showResult()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=fill;whiteSpace=wrap;html=1;" vertex="1" parent="10">
+          <mxGeometry y="30" width="180" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- 关系 -->
+        <mxCell id="12" value="1" style="endArrow=none;html=1;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2" target="5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="13" value="1..*" style="endArrow=none;html=1;startArrow=none;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5" target="2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="14" value="&lt;&lt;dependency&gt;&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;dashed=1;startArrow=none;" edge="1" parent="1" source="8" target="5">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="80" y="150" as="sourcePoint"/>
-            <mxPoint x="210" y="150" as="targetPoint"/>
+            <mxPoint x="310" y="345" as="sourcePoint"/>
+            <mxPoint x="400" y="130" as="targetPoint"/>
           </mxGeometry>
         </mxCell>
-        <mxCell id="7" value="submitResult(成员ID, 赛事数据)" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="4">
+        <mxCell id="15" value="&lt;&lt;dependency&gt;&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;dashed=1;startArrow=none;" edge="1" parent="1" source="8" target="10">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="210" y="170" as="sourcePoint"/>
-            <mxPoint x="340" y="170" as="targetPoint"/>
+            <mxPoint x="310" y="345" as="sourcePoint"/>
+            <mxPoint x="480" y="345" as="targetPoint"/>
           </mxGeometry>
         </mxCell>
-        <mxCell id="8" value="checkDuplicate(成员ID,赛事名,日期)" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="5">
+        <mxCell id="16" value="&lt;&lt;dependency&gt;&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;dashed=1;startArrow=none;" edge="1" parent="1" source="10" target="2">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="340" y="190" as="sourcePoint"/>
-            <mxPoint x="470" y="190" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="9" value="无重复" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;dashed=1;" edge="1" parent="1" source="5" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="470" y="210" as="sourcePoint"/>
-            <mxPoint x="340" y="210" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="10" value="createRecord(数据, 待审核)" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="5">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="340" y="230" as="sourcePoint"/>
-            <mxPoint x="470" y="230" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="11" value="保存成功" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;dashed=1;" edge="1" parent="1" source="5" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="470" y="250" as="sourcePoint"/>
-            <mxPoint x="340" y="250" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="12" value="返回成功" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="3">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="340" y="270" as="sourcePoint"/>
-            <mxPoint x="210" y="270" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="13" value="显示已提交，等待审核" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="2">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="210" y="290" as="sourcePoint"/>
-            <mxPoint x="80" y="290" as="targetPoint"/>
+            <mxPoint x="570" y="345" as="sourcePoint"/>
+            <mxPoint x="240" y="115" as="targetPoint"/>
           </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
 
-  <diagram name="UC06-上报马拉松成绩-备选流(重复上报)" id="uc06-alt">
+  <diagram name="参与类图-发布活动" id="class-activity">
     <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
-        <mxCell id="2" value="跑团成员" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="30" y="80" width="100" height="400" as="geometry"/>
+        <mxCell id="2" value="Admin" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="200" height="120" as="geometry"/>
         </mxCell>
-        <mxCell id="3" value="成绩上报界面" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="160" y="80" width="100" height="400" as="geometry"/>
+        <mxCell id="3" value="- adminId: String&#10;- name: String" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=fill;whiteSpace=wrap;html=1;" vertex="1" parent="2">
+          <mxGeometry y="30" width="200" height="50" as="geometry"/>
         </mxCell>
-        <mxCell id="4" value="成绩管理控制器" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="290" y="80" width="100" height="400" as="geometry"/>
+        <mxCell id="4" value="+ publishActivity()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=fill;whiteSpace=wrap;html=1;" vertex="1" parent="2">
+          <mxGeometry y="80" width="200" height="40" as="geometry"/>
         </mxCell>
-        <mxCell id="5" value="马拉松成绩记录" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="420" y="80" width="100" height="400" as="geometry"/>
+        
+        <mxCell id="5" value="Activity" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="40" width="220" height="200" as="geometry"/>
         </mxCell>
-        <mxCell id="6" value="提交成绩" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="2" target="3">
+        <mxCell id="6" value="- activityId: String&#10;- name: String&#10;- type: String&#10;- date: Date&#10;- location: String&#10;- distance: float&#10;- signupDeadline: Date&#10;- description: String&#10;- imageUrl: String" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=fill;whiteSpace=wrap;html=1;" vertex="1" parent="5">
+          <mxGeometry y="30" width="220" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="7" value="+ createActivity()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=fill;whiteSpace=wrap;html=1;" vertex="1" parent="5">
+          <mxGeometry y="160" width="220" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="8" value="ActivityManager" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="320" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="9" value="+ publishActivity()&#10;+ viewSignupList()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=fill;whiteSpace=wrap;html=1;" vertex="1" parent="8">
+          <mxGeometry y="30" width="180" height="60" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="10" value="PublishActivityUI" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="320" width="180" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="11" value="+ displayForm()&#10;+ submit()&#10;+ showMessage()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=fill;whiteSpace=wrap;html=1;" vertex="1" parent="10">
+          <mxGeometry y="30" width="180" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- 关系 -->
+        <mxCell id="12" value="1" style="endArrow=none;html=1;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2" target="5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="13" value="0..*" style="endArrow=none;html=1;startArrow=none;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5" target="2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="14" value="&lt;&lt;dependency&gt;&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;dashed=1;startArrow=none;" edge="1" parent="1" source="8" target="5">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="80" y="150" as="sourcePoint"/>
-            <mxPoint x="210" y="150" as="targetPoint"/>
+            <mxPoint x="290" y="365" as="sourcePoint"/>
+            <mxPoint x="420" y="140" as="targetPoint"/>
           </mxGeometry>
         </mxCell>
-        <mxCell id="7" value="submitResult()" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="4">
+        <mxCell id="15" value="&lt;&lt;dependency&gt;&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;dashed=1;startArrow=none;" edge="1" parent="1" source="8" target="10">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="210" y="170" as="sourcePoint"/>
-            <mxPoint x="340" y="170" as="targetPoint"/>
+            <mxPoint x="290" y="365" as="sourcePoint"/>
+            <mxPoint x="460" y="365" as="targetPoint"/>
           </mxGeometry>
         </mxCell>
-        <mxCell id="8" value="checkDuplicate()" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="5">
+        <mxCell id="16" value="&lt;&lt;dependency&gt;&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;dashed=1;startArrow=none;" edge="1" parent="1" source="10" target="2">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="340" y="190" as="sourcePoint"/>
-            <mxPoint x="470" y="190" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="9" value="已存在" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;dashed=1;" edge="1" parent="1" source="5" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="470" y="210" as="sourcePoint"/>
-            <mxPoint x="340" y="210" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="10" value="返回重复上报" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="3">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="340" y="230" as="sourcePoint"/>
-            <mxPoint x="210" y="230" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="11" value="显示不可重复" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="2">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="210" y="250" as="sourcePoint"/>
-            <mxPoint x="80" y="250" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-
-  <!-- UC07 申请修改成绩 -->
-  <diagram name="UC07-申请修改成绩-基本流" id="uc07-basic">
-    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
-      <root>
-        <mxCell id="0"/>
-        <mxCell id="1" parent="0"/>
-        <mxCell id="2" value="跑团成员" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="20" y="80" width="100" height="450" as="geometry"/>
-        </mxCell>
-        <mxCell id="3" value="成绩详情界面" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="140" y="80" width="100" height="450" as="geometry"/>
-        </mxCell>
-        <mxCell id="4" value="成绩管理控制器" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="260" y="80" width="100" height="450" as="geometry"/>
-        </mxCell>
-        <mxCell id="5" value="马拉松成绩记录" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="380" y="80" width="100" height="450" as="geometry"/>
-        </mxCell>
-        <mxCell id="6" value="修改申请实体" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="500" y="80" width="100" height="450" as="geometry"/>
-        </mxCell>
-        <mxCell id="7" value="点击申请修改" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="2" target="3">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="70" y="150" as="sourcePoint"/>
-            <mxPoint x="190" y="150" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8" value="applyModify(成员ID,记录ID,修改内容,原因)" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="190" y="170" as="sourcePoint"/>
-            <mxPoint x="310" y="170" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="9" value="getRecord(记录ID)" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="5">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="310" y="190" as="sourcePoint"/>
-            <mxPoint x="430" y="190" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="10" value="成绩已审核通过" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;dashed=1;" edge="1" parent="1" source="5" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="430" y="210" as="sourcePoint"/>
-            <mxPoint x="310" y="210" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="11" value="createRequest(记录ID,修改内容,原因)" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="6">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="310" y="230" as="sourcePoint"/>
-            <mxPoint x="550" y="230" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="12" value="保存成功" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;dashed=1;" edge="1" parent="1" source="6" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="550" y="250" as="sourcePoint"/>
-            <mxPoint x="310" y="250" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="13" value="返回成功" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="3">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="310" y="270" as="sourcePoint"/>
-            <mxPoint x="190" y="270" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="14" value="显示提交成功" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="2">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="190" y="290" as="sourcePoint"/>
-            <mxPoint x="70" y="290" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-
-  <diagram name="UC07-申请修改成绩-备选流(成绩未审核)" id="uc07-alt">
-    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
-      <root>
-        <mxCell id="0"/>
-        <mxCell id="1" parent="0"/>
-        <mxCell id="2" value="跑团成员" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="30" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="3" value="成绩详情界面" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="160" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="4" value="成绩管理控制器" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="290" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="5" value="马拉松成绩记录" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="420" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="6" value="点击申请修改" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="2" target="3">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="80" y="150" as="sourcePoint"/>
-            <mxPoint x="210" y="150" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="7" value="applyModify()" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="210" y="170" as="sourcePoint"/>
-            <mxPoint x="340" y="170" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8" value="getRecord(记录ID)" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="5">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="340" y="190" as="sourcePoint"/>
-            <mxPoint x="470" y="190" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="9" value="状态为待审核" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;dashed=1;" edge="1" parent="1" source="5" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="470" y="210" as="sourcePoint"/>
-            <mxPoint x="340" y="210" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="10" value="返回无法修改" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="3">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="340" y="230" as="sourcePoint"/>
-            <mxPoint x="210" y="230" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="11" value="显示错误提示" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="2">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="210" y="250" as="sourcePoint"/>
-            <mxPoint x="80" y="250" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-
-  <!-- UC08 跑步打卡 -->
-  <diagram name="UC08-跑步打卡-基本流" id="uc08-basic">
-    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
-      <root>
-        <mxCell id="0"/>
-        <mxCell id="1" parent="0"/>
-        <mxCell id="2" value="跑团成员" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="40" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="3" value="打卡界面" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="200" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="4" value="打卡控制器" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="360" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="5" value="跑步打卡记录" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="520" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="6" value="填写数据并提交" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="2" target="3">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="90" y="150" as="sourcePoint"/>
-            <mxPoint x="250" y="150" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="7" value="addRunningRecord(成员ID,数据)" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="250" y="170" as="sourcePoint"/>
-            <mxPoint x="410" y="170" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8" value="createRecord(成员ID,数据)" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="5">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="410" y="190" as="sourcePoint"/>
-            <mxPoint x="570" y="190" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="9" value="保存成功" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;dashed=1;" edge="1" parent="1" source="5" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="570" y="210" as="sourcePoint"/>
-            <mxPoint x="410" y="210" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="10" value="返回成功" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="3">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="410" y="230" as="sourcePoint"/>
-            <mxPoint x="250" y="230" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="11" value="显示打卡成功" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="2">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="250" y="250" as="sourcePoint"/>
-            <mxPoint x="90" y="250" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-
-  <diagram name="UC08-跑步打卡-备选流(数据校验失败)" id="uc08-alt">
-    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
-      <root>
-        <mxCell id="0"/>
-        <mxCell id="1" parent="0"/>
-        <mxCell id="2" value="跑团成员" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="40" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="3" value="打卡界面" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="200" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="4" value="打卡控制器" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="360" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="5" value="填写跑量≤0或用时≤0" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="2" target="3">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="90" y="150" as="sourcePoint"/>
-            <mxPoint x="250" y="150" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="6" value="addRunningRecord(无效数据)" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="250" y="170" as="sourcePoint"/>
-            <mxPoint x="410" y="170" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="7" value="校验发现无效" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;dashed=1;" edge="1" parent="1" source="4" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="410" y="190" as="sourcePoint"/>
-            <mxPoint x="410" y="210" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8" value="返回错误" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="3">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="410" y="230" as="sourcePoint"/>
-            <mxPoint x="250" y="230" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="9" value="显示错误提示" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="2">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="250" y="250" as="sourcePoint"/>
-            <mxPoint x="90" y="250" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-
-  <!-- UC09 查看个人跑量汇总 -->
-  <diagram name="UC09-查看个人跑量汇总-基本流" id="uc09-basic">
-    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
-      <root>
-        <mxCell id="0"/>
-        <mxCell id="1" parent="0"/>
-        <mxCell id="2" value="跑团成员" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="40" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="3" value="跑量统计界面" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="200" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="4" value="统计控制器" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="360" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="5" value="跑步打卡记录" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="520" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="6" value="选择汇总维度(日/周/月/年)" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="2" target="3">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="90" y="150" as="sourcePoint"/>
-            <mxPoint x="250" y="150" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="7" value="getPersonalRunningSummary(成员ID,维度)" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="250" y="170" as="sourcePoint"/>
-            <mxPoint x="410" y="170" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8" value="findRecordsByMemberAndDateRange(成员ID,范围)" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="5">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="410" y="190" as="sourcePoint"/>
-            <mxPoint x="570" y="190" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="9" value="返回打卡记录列表" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;dashed=1;" edge="1" parent="1" source="5" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="570" y="210" as="sourcePoint"/>
-            <mxPoint x="410" y="210" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="10" value="计算总跑量等" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;dashed=1;" edge="1" parent="1" source="4" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="410" y="230" as="sourcePoint"/>
-            <mxPoint x="410" y="250" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="11" value="返回统计数据" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="3">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="410" y="270" as="sourcePoint"/>
-            <mxPoint x="250" y="270" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="12" value="展示图表/数据" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="2">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="250" y="290" as="sourcePoint"/>
-            <mxPoint x="90" y="290" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-
-  <diagram name="UC09-查看个人跑量汇总-备选流(无记录)" id="uc09-alt">
-    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
-      <root>
-        <mxCell id="0"/>
-        <mxCell id="1" parent="0"/>
-        <mxCell id="2" value="跑团成员" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="40" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="3" value="跑量统计界面" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="200" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="4" value="统计控制器" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="360" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="5" value="跑步打卡记录" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="520" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="6" value="选择汇总维度" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="2" target="3">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="90" y="150" as="sourcePoint"/>
-            <mxPoint x="250" y="150" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="7" value="getPersonalRunningSummary()" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="250" y="170" as="sourcePoint"/>
-            <mxPoint x="410" y="170" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8" value="findRecords...()" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="5">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="410" y="190" as="sourcePoint"/>
-            <mxPoint x="570" y="190" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="9" value="返回空列表" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;dashed=1;" edge="1" parent="1" source="5" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="570" y="210" as="sourcePoint"/>
-            <mxPoint x="410" y="210" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="10" value="返回0" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="3">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="410" y="230" as="sourcePoint"/>
-            <mxPoint x="250" y="230" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="11" value="显示暂无打卡记录" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="2">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="250" y="250" as="sourcePoint"/>
-            <mxPoint x="90" y="250" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-
-  <!-- UC10 查看个人参赛记录 -->
-  <diagram name="UC10-查看个人参赛记录-基本流" id="uc10-basic">
-    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
-      <root>
-        <mxCell id="0"/>
-        <mxCell id="1" parent="0"/>
-        <mxCell id="2" value="跑团成员" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="20" y="80" width="100" height="450" as="geometry"/>
-        </mxCell>
-        <mxCell id="3" value="我的参赛界面" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="140" y="80" width="100" height="450" as="geometry"/>
-        </mxCell>
-        <mxCell id="4" value="参赛记录控制器" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="260" y="80" width="100" height="450" as="geometry"/>
-        </mxCell>
-        <mxCell id="5" value="活动参与记录" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="380" y="80" width="100" height="450" as="geometry"/>
-        </mxCell>
-        <mxCell id="6" value="马拉松成绩记录" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="500" y="80" width="100" height="450" as="geometry"/>
-        </mxCell>
-        <mxCell id="7" value="进入我的参赛" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="2" target="3">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="70" y="150" as="sourcePoint"/>
-            <mxPoint x="190" y="150" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8" value="getPersonalParticipation(成员ID)" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="190" y="170" as="sourcePoint"/>
-            <mxPoint x="310" y="170" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="9" value="findActivitiesByMember(成员ID)" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="5">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="310" y="190" as="sourcePoint"/>
-            <mxPoint x="430" y="190" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="10" value="返回活动列表" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;dashed=1;" edge="1" parent="1" source="5" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="430" y="210" as="sourcePoint"/>
-            <mxPoint x="310" y="210" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="11" value="findMarathonsByMember(成员ID,已通过)" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="6">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="310" y="230" as="sourcePoint"/>
-            <mxPoint x="550" y="230" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="12" value="返回马拉松列表" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;dashed=1;" edge="1" parent="1" source="6" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="550" y="250" as="sourcePoint"/>
-            <mxPoint x="310" y="250" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="13" value="合并并排序" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;dashed=1;" edge="1" parent="1" source="4" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="310" y="270" as="sourcePoint"/>
-            <mxPoint x="310" y="290" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="14" value="返回记录列表" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="3">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="310" y="310" as="sourcePoint"/>
-            <mxPoint x="190" y="310" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="15" value="展示所有记录" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="2">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="190" y="330" as="sourcePoint"/>
-            <mxPoint x="70" y="330" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-
-  <diagram name="UC10-查看个人参赛记录-备选流(无记录)" id="uc10-alt">
-    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
-      <root>
-        <mxCell id="0"/>
-        <mxCell id="1" parent="0"/>
-        <mxCell id="2" value="跑团成员" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="40" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="3" value="我的参赛界面" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="200" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="4" value="参赛记录控制器" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="360" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="5" value="活动参与记录" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="520" y="80" width="100" height="400" as="geometry"/>
-        </mxCell>
-        <mxCell id="6" value="进入我的参赛" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="2" target="3">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="90" y="150" as="sourcePoint"/>
-            <mxPoint x="250" y="150" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="7" value="getPersonalParticipation()" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="250" y="170" as="sourcePoint"/>
-            <mxPoint x="410" y="170" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8" value="findActivitiesByMember()" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="5">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="410" y="190" as="sourcePoint"/>
-            <mxPoint x="570" y="190" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="9" value="空" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;dashed=1;" edge="1" parent="1" source="5" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="570" y="210" as="sourcePoint"/>
-            <mxPoint x="410" y="210" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="10" value="findMarathonsByMember() 空" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="4">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="410" y="230" as="sourcePoint"/>
-            <mxPoint x="410" y="250" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="11" value="返回空列表" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="3">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="410" y="270" as="sourcePoint"/>
-            <mxPoint x="250" y="270" as="targetPoint"/>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="12" value="显示暂无参赛记录" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="2">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="250" y="290" as="sourcePoint"/>
-            <mxPoint x="90" y="290" as="targetPoint"/>
+            <mxPoint x="550" y="365" as="sourcePoint"/>
+            <mxPoint x="240" y="100" as="targetPoint"/>
           </mxGeometry>
         </mxCell>
       </root>
