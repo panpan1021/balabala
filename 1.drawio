@@ -1,13 +1,123 @@
-sequenceDiagram
-    participant 成员 as 跑团成员
-    participant UI as 登录界面
-    participant Controller as 认证控制器
-    participant Member as 成员实体
+<mxfile host="app.diagrams.net" modified="2026-05-27T00:00:00.000Z" agent="AI" version="22.1.0">
+  <diagram name="UC01-微信一键登录-基本流" id="uc01-basic">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="2" value="跑团成员" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="100" height="400" as="geometry"/>
+        </mxCell>
+        <mxCell id="3" value="登录界面" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="200" y="80" width="100" height="400" as="geometry"/>
+        </mxCell>
+        <mxCell id="4" value="认证控制器" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="360" y="80" width="100" height="400" as="geometry"/>
+        </mxCell>
+        <mxCell id="5" value="成员实体" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="80" width="100" height="400" as="geometry"/>
+        </mxCell>
+        <mxCell id="6" value="点击微信一键登录" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="150" as="sourcePoint"/>
+            <mxPoint x="250" y="150" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7" value="wechatLogin()" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="170" as="sourcePoint"/>
+            <mxPoint x="410" y="170" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8" value="调用微信接口获取openId" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;dashed=1;" edge="1" parent="1" source="4" target="4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="410" y="190" as="sourcePoint"/>
+            <mxPoint x="410" y="210" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9" value="findMemberByOpenId(openId)" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="410" y="230" as="sourcePoint"/>
+            <mxPoint x="570" y="230" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="10" value="返回成员信息" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;dashed=1;" edge="1" parent="1" source="5" target="4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="570" y="250" as="sourcePoint"/>
+            <mxPoint x="410" y="250" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="11" value="返回登录成功" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="410" y="270" as="sourcePoint"/>
+            <mxPoint x="250" y="270" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="12" value="跳转首页" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="290" as="sourcePoint"/>
+            <mxPoint x="90" y="290" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  
+  <diagram name="UC01-微信一键登录-备选流(未绑定)" id="uc01-alt">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="2" value="跑团成员" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="100" height="400" as="geometry"/>
+        </mxCell>
+        <mxCell id="3" value="登录界面" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="200" y="80" width="100" height="400" as="geometry"/>
+        </mxCell>
+        <mxCell id="4" value="认证控制器" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="360" y="80" width="100" height="400" as="geometry"/>
+        </mxCell>
+        <mxCell id="5" value="成员实体" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="80" width="100" height="400" as="geometry"/>
+        </mxCell>
+        <mxCell id="6" value="点击微信一键登录" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="150" as="sourcePoint"/>
+            <mxPoint x="250" y="150" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7" value="wechatLogin()" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="170" as="sourcePoint"/>
+            <mxPoint x="410" y="170" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8" value="findMemberByOpenId(openId)" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="410" y="190" as="sourcePoint"/>
+            <mxPoint x="570" y="190" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9" value="未找到" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;dashed=1;" edge="1" parent="1" source="5" target="4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="570" y="210" as="sourcePoint"/>
+            <mxPoint x="410" y="210" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="10" value="返回未绑定" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="4" target="3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="410" y="230" as="sourcePoint"/>
+            <mxPoint x="250" y="230" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="11" value="跳转绑定页面" style="html=1;endArrow=open;endSize=8;startArrow=none;startSize=8;" edge="1" parent="1" source="3" target="2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="250" as="sourcePoint"/>
+            <mxPoint x="90" y="250" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
 
-    成员->>UI: 点击“微信一键登录”
-    UI->>Controller: wechatLogin()
-    Controller->>Controller: 调用微信接口获取openId
-    Controller->>Member: findMemberByOpenId(openId)
-    Member-->>Controller: 返回成员信息（已绑定）
-    Controller-->>UI: 返回登录成功
-    UI-->>成员: 跳转至首页
+  <!-- 为节省篇幅，UC02~UC05 的代码类似格式，此处省略。由于消息长度限制，我会在后续回复中补全 UC02~UC05 以及剩余批次。 -->
+</mxfile>
