@@ -1,108 +1,13 @@
-<mxfile host="app.diagrams.net" modified="2026-05-27T00:00:00.000Z" agent="AI" version="22.1.0" type="device">
-  <diagram name="用例图" id="use-case-diagram">
-    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
-      <root>
-        <mxCell id="0"/>
-        <mxCell id="1" parent="0"/>
-        <mxCell id="2" value="吉大跑团微信小程序" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
-          <mxGeometry x="200" y="40" width="760" height="700" as="geometry"/>
-        </mxCell>
-        <mxCell id="3" value="跑团成员" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
-          <mxGeometry x="60" y="300" width="30" height="60" as="geometry"/>
-        </mxCell>
-        <mxCell id="4" value="跑团管理员" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
-          <mxGeometry x="920" y="300" width="30" height="60" as="geometry"/>
-        </mxCell>
-        <!-- 泛化箭头 -->
-        <mxCell id="5" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;endFill=0;dashed=1;" edge="1" parent="1" source="4" target="3">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-        <!-- 成员用例 -->
-        <mxCell id="6" value="查看活动列表" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="280" y="80" width="100" height="50" as="geometry"/>
-        </mxCell>
-        <mxCell id="7" value="报名活动" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="280" y="150" width="100" height="50" as="geometry"/>
-        </mxCell>
-        <mxCell id="8" value="取消报名" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="280" y="220" width="100" height="50" as="geometry"/>
-        </mxCell>
-        <mxCell id="9" value="微信一键登录" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="280" y="290" width="100" height="50" as="geometry"/>
-        </mxCell>
-        <mxCell id="10" value="绑定教师身份" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="440" y="290" width="100" height="50" as="geometry"/>
-        </mxCell>
-        <mxCell id="11" value="上报马拉松成绩" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="280" y="360" width="100" height="50" as="geometry"/>
-        </mxCell>
-        <mxCell id="12" value="申请修改成绩" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="280" y="430" width="100" height="50" as="geometry"/>
-        </mxCell>
-        <mxCell id="13" value="跑步打卡" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="280" y="500" width="100" height="50" as="geometry"/>
-        </mxCell>
-        <mxCell id="14" value="查看个人跑量汇总" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="280" y="570" width="100" height="50" as="geometry"/>
-        </mxCell>
-        <mxCell id="15" value="查看个人参赛记录" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="280" y="640" width="100" height="50" as="geometry"/>
-        </mxCell>
-        <!-- 管理员额外用例 -->
-        <mxCell id="16" value="发布活动" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="720" y="80" width="100" height="50" as="geometry"/>
-        </mxCell>
-        <mxCell id="17" value="查看报名名单" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="720" y="150" width="100" height="50" as="geometry"/>
-        </mxCell>
-        <mxCell id="18" value="导出报名名单" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="870" y="150" width="100" height="50" as="geometry"/>
-        </mxCell>
-        <mxCell id="19" value="标记签到" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="720" y="220" width="100" height="50" as="geometry"/>
-        </mxCell>
-        <mxCell id="20" value="审核成员成绩" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="720" y="290" width="100" height="50" as="geometry"/>
-        </mxCell>
-        <mxCell id="21" value="查看全体成员跑量汇总" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="720" y="360" width="100" height="50" as="geometry"/>
-        </mxCell>
-        <mxCell id="22" value="查看跑团整体统计" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="720" y="430" width="100" height="50" as="geometry"/>
-        </mxCell>
-        <mxCell id="23" value="导出整体汇总表" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="870" y="430" width="100" height="50" as="geometry"/>
-        </mxCell>
-        <mxCell id="24" value="发布跑团公告" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="720" y="500" width="100" height="50" as="geometry"/>
-        </mxCell>
-        <!-- 连线 成员-用例 -->
-        <mxCell id="25" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="3" target="6"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="26" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="3" target="7"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="27" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="3" target="8"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="28" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="3" target="9"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="29" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="3" target="11"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="30" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="3" target="12"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="31" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="3" target="13"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="32" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="3" target="14"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="33" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="3" target="15"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <!-- 连线 管理员-用例 -->
-        <mxCell id="34" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="4" target="16"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="35" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="4" target="17"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="36" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="4" target="19"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="37" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="4" target="20"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="38" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="4" target="21"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="39" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="4" target="22"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="40" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="4" target="24"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <!-- 包含关系 -->
-        <mxCell id="41" value="&lt;&lt;include&gt;&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;dashed=1;" edge="1" parent="1" source="17" target="18"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <mxCell id="42" value="&lt;&lt;include&gt;&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;dashed=1;" edge="1" parent="1" source="22" target="23"><mxGeometry relative="1" as="geometry"/></mxCell>
-        <!-- 扩展关系 -->
-        <mxCell id="43" value="&lt;&lt;extend&gt;&gt;" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;dashed=1;" edge="1" parent="1" source="9" target="10"><mxGeometry relative="1" as="geometry"/></mxCell>
-      </root>
-    </mxGraphModel>
-  </diagram>
-  
-  <!-- 为了节省篇幅，此处省略其他38个顺序图和类图的详细XML。由于内容过多，建议你使用Mermaid生成顺序图，因为draw.io的顺序图XML非常冗长。
-       如果你确实需要完整的draw.io XML，请告诉我，我可以分批次提供。或者你可以使用Mermaid代码在draw.io中导入（draw.io支持Mermaid导入：文件->导入->Mermaid）。这样更高效。 -->
-</mxfile>
+sequenceDiagram
+    participant 成员 as 跑团成员
+    participant UI as 登录界面
+    participant Controller as 认证控制器
+    participant Member as 成员实体
+
+    成员->>UI: 点击“微信一键登录”
+    UI->>Controller: wechatLogin()
+    Controller->>Controller: 调用微信接口获取openId
+    Controller->>Member: findMemberByOpenId(openId)
+    Member-->>Controller: 返回成员信息（已绑定）
+    Controller-->>UI: 返回登录成功
+    UI-->>成员: 跳转至首页
